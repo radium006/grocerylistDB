@@ -1,0 +1,30 @@
+<html>
+
+<head></head>
+
+<body>
+    <h1>Welcome to your Grocery App:</h1>
+    <h3>Add new store</h3>
+    <form action="/add_store" method='POST'>
+        <input type="text" name="store_name" placeholder="Enter Name of Store" />
+        <input type="text" name="street_name" placeholder="Enter Name of Street" />
+        <input type="text" name="city_name" placeholder="Enter City" />
+        <input type="text" name="state_name" placeholder="Enter State" />
+        <input type="submit" value="Add Store">
+    </form>
+
+    <h3>Current Lists</h3>
+    <ul>
+        {{#stores}}
+        <li>
+            {{name}} ({{street}} - {{city}}, {{state}})
+            <form action="/delete_store" method="POST">
+                <input type='hidden' name=store_id value="{{id}}" />
+                <input type='submit' value='Delete Store'>
+            </form>
+        </li>
+        {{/stores}}
+    </ul>
+</body>
+
+</html>
